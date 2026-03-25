@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "my-cli"
+name = "cleam-cli"
 version = "0.1.0"
 description = "一个类似 Claude Code 的 AI 驱动 CLI 工具 Starter"
 readme = "README.md"
@@ -19,7 +19,7 @@ dependencies = [
 ]
 
 [project.scripts]
-my-cli = "my_cli.main:app"
+cleam-cli = "cleam_cli.main:app"
 
 [project.optional-dependencies]
 dev = [
@@ -31,7 +31,7 @@ dev = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/my_cli"]
+packages = ["src/cleam_cli"]
 
 # ---------------------------------------------------------------------------
 # Ruff — linting & formatting
@@ -89,8 +89,8 @@ exclude = ["tests/"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
-addopts = "--cov=my_cli --cov-report=term-missing -q"
+addopts = "--cov=cleam_cli --cov-report=term-missing -q"
 
 [tool.coverage.run]
-source = ["src/my_cli"]
+source = ["src/cleam_cli"]
 omit = ["tests/*"]

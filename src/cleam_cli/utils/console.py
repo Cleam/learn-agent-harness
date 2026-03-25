@@ -1,4 +1,4 @@
-"""my_cli.utils.console — 终端输出辅助工具（基于 Rich）。"""
+"""cleam_cli.utils.console — 终端输出辅助工具（基于 Rich）。"""
 
 from __future__ import annotations
 

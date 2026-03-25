@@ -6,7 +6,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from my_cli.core.agent import AgentSession, Message
+from cleam_cli.core.agent import AgentSession, Message
 
 
 class TestMessage:
@@ -53,7 +53,7 @@ class TestAgentSession:
     def test_chat_raises_when_no_api_key(self) -> None:
         """当 API Key 为空时，chat() 应抛出 ValueError。"""
         session = AgentSession()
-        with patch("my_cli.core.agent.settings") as mock_settings:
+        with patch("cleam_cli.core.agent.settings") as mock_settings:
             mock_settings.openai_api_key.get_secret_value.return_value = ""
             with pytest.raises(ValueError, match="API Key"):
                 session.chat("任意输入")
@@ -68,8 +68,8 @@ class TestAgentSession:
         fake_response.choices = [fake_choice]
 
         with (
-            patch("my_cli.core.agent.settings") as mock_settings,
-            patch("my_cli.core.agent.OpenAI") as mock_openai_cls,
+            patch("cleam_cli.core.agent.settings") as mock_settings,
+            patch("cleam_cli.core.agent.OpenAI") as mock_openai_cls,
         ):
             mock_settings.openai_api_key.get_secret_value.return_value = "sk-test"
             mock_settings.openai_base_url = "https://api.openai.com/v1"

@@ -1,4 +1,4 @@
-"""my_cli.config — 配置管理，读取环境变量与配置文件。"""
+"""cleam_cli.config — 配置管理，读取环境变量与配置文件。"""
 
 from __future__ import annotations
 
@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
-        env_prefix="MY_CLI_",
+        env_prefix="CLEAM_CLI_",
         case_sensitive=False,
         extra="ignore",
     )
@@ -52,7 +52,7 @@ class Settings(BaseSettings):
 
     # --- 历史记录 ---
     history_dir: Path = Field(
-        default=Path.home() / ".my_cli" / "history",
+        default=Path.home() / ".cleam_cli" / "history",
         description="对话历史存储目录。",
     )
     max_history: int = Field(

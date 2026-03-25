@@ -1,4 +1,4 @@
-"""my_cli.core.agent — AI 代理核心逻辑。"""
+"""cleam_cli.core.agent — AI 代理核心逻辑。"""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 
 from openai import OpenAI
 
-from my_cli.config import settings
+from cleam_cli.config import settings
 
 if TYPE_CHECKING:
     from openai.types.chat import ChatCompletionMessageParam
@@ -72,7 +72,7 @@ class AgentSession:
         api_key = settings.openai_api_key.get_secret_value()
         if not api_key:
             raise ValueError(
-                "未检测到 API Key，请在 .env 文件或环境变量 MY_CLI_OPENAI_API_KEY 中配置。"
+                "未检测到 API Key，请在 .env 文件或环境变量 CLEAM_CLI_OPENAI_API_KEY 中配置。"
             )
 
         client = OpenAI(

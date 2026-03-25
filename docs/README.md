@@ -25,7 +25,7 @@ CLI 入口 (main.py)
 
 ## 核心类说明
 
-### `AgentSession`（`src/my_cli/core/agent.py`）
+### `AgentSession`（`src/cleam_cli/core/agent.py`）
 
 多轮对话状态机，负责：
 
@@ -40,12 +40,12 @@ CLI 入口 (main.py)
 - 在 `chat()` 前后添加钩子（日志、计时、重试）
 - 添加 `stream_chat()` 方法支持流式输出
 
-### `Settings`（`src/my_cli/config.py`）
+### `Settings`（`src/cleam_cli/config.py`）
 
 基于 `pydantic-settings` 的配置类，支持：
 
 - 从 `.env` 文件自动加载
-- 环境变量覆盖（前缀 `MY_CLI_`）
+- 环境变量覆盖（前缀 `CLEAM_CLI_`）
 - 字段类型验证与范围约束
 
 **扩展点：**
@@ -59,8 +59,8 @@ CLI 入口 (main.py)
 
 ```python
 from openai import OpenAI
-from my_cli.config import settings
-from my_cli.utils.console import console
+from cleam_cli.config import settings
+from cleam_cli.utils.console import console
 
 def stream_chat(user_input: str) -> None:
     client = OpenAI(

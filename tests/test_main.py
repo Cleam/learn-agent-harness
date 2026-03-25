@@ -7,15 +7,15 @@ from pathlib import Path
 
 from typer.testing import CliRunner
 
-from my_cli import __version__
-from my_cli.main import app
+from cleam_cli import __version__
+from cleam_cli.main import app
 
 
 def test_app_help(runner: CliRunner) -> None:
     """--help 应成功输出帮助信息。"""
     result = runner.invoke(app, ["--help"])
     assert result.exit_code == 0
-    assert "my-cli" in result.output.lower() or "AI" in result.output
+    assert "cleam-cli" in result.output.lower() or "AI" in result.output
 
 
 def test_version_show(runner: CliRunner) -> None:
@@ -61,7 +61,7 @@ def test_config_init_force(runner: CliRunner, tmp_path: Path) -> None:
         result = runner.invoke(app, ["config", "init", "--force"])
         assert result.exit_code == 0
         content = (tmp_path / ".env").read_text(encoding="utf-8")
-        assert "MY_CLI_OPENAI_API_KEY" in content
+        assert "CLEAM_CLI_OPENAI_API_KEY" in content
     finally:
         os.chdir(original_dir)
 

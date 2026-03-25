@@ -1,12 +1,12 @@
-"""my_cli.commands.config — 配置查看与修改子命令。"""
+"""cleam_cli.commands.config — 配置查看与修改子命令。"""
 
 from __future__ import annotations
 
 import typer
 from rich.table import Table
 
-from my_cli.config import settings
-from my_cli.utils.console import console, print_success
+from cleam_cli.config import settings
+from cleam_cli.utils.console import console, print_success
 
 app = typer.Typer(help="查看或修改工具配置。")
 
@@ -53,23 +53,23 @@ def init(
         raise typer.Exit(code=1)
 
     content = """\
-# my-cli 配置文件
+# cleam-cli 配置文件
 # 将此文件重命名为 .env 并填写相应值
 
 # OpenAI API 密钥（必填）
-MY_CLI_OPENAI_API_KEY=
+CLEAM_CLI_OPENAI_API_KEY=
 
 # API 接口地址（可选，默认为官方接口）
-MY_CLI_OPENAI_BASE_URL=https://api.openai.com/v1
+CLEAM_CLI_OPENAI_BASE_URL=https://api.openai.com/v1
 
 # 使用的模型（默认 gpt-4o）
-MY_CLI_MODEL=gpt-4o
+CLEAM_CLI_MODEL=gpt-4o
 
 # 单次最大 token 数
-MY_CLI_MAX_TOKENS=4096
+CLEAM_CLI_MAX_TOKENS=4096
 
 # 生成温度（0.0 - 2.0）
-MY_CLI_TEMPERATURE=0.7
+CLEAM_CLI_TEMPERATURE=0.7
 """
     with open(target, "w", encoding="utf-8") as f:
         f.write(content)

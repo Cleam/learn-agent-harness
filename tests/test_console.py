@@ -7,7 +7,7 @@ from io import StringIO
 
 from rich.console import Console
 
-from my_cli.utils.console import (
+from cleam_cli.utils.console import (
     print_assistant_message,
     print_error,
     print_info,
@@ -22,7 +22,7 @@ def _capture(func: Callable[..., None], *args: str) -> str:
     buf = StringIO()
     test_console = Console(file=buf, highlight=False, no_color=True)
     # 临时替换模块级 console
-    import my_cli.utils.console as _mod
+    import cleam_cli.utils.console as _mod
 
     original = _mod.console
     _mod.console = test_console  # type: ignore[assignment]

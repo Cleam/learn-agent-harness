@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import typer
 
-from my_cli import __app_name__
-from my_cli.commands import chat, config, version
+from cleam_cli import __app_name__
+from cleam_cli.commands import chat, config, version
 
 app = typer.Typer(
     name=__app_name__,
@@ -26,7 +26,7 @@ def callback(
     ctx: typer.Context,
     verbose: bool = typer.Option(False, "--verbose", "-v", help="输出详细日志。"),
 ) -> None:
-    """my-cli：与 AI 代理在终端中交互的命令行工具。"""
+    """cleam-cli：与 AI 代理在终端中交互的命令行工具。"""
     ctx.ensure_object(dict)
     ctx.obj["verbose"] = verbose
 

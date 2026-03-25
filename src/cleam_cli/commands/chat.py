@@ -1,4 +1,4 @@
-"""my_cli.commands.chat — 交互式对话子命令。"""
+"""cleam_cli.commands.chat — 交互式对话子命令。"""
 
 from __future__ import annotations
 
@@ -7,8 +7,8 @@ import sys
 import typer
 from rich.prompt import Prompt
 
-from my_cli.core.agent import AgentSession
-from my_cli.utils.console import (
+from cleam_cli.core.agent import AgentSession
+from cleam_cli.utils.console import (
     print_assistant_message,
     print_error,
     print_info,
